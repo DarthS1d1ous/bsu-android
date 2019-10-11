@@ -10,27 +10,27 @@ import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private EditText editText;
-    private Button button;
+    private TextView answerText;
+    private EditText editTextMessage;
+    private Button sendMessageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textView);
-        button = findViewById(R.id.button);
-        editText = findViewById(R.id.editText);
+        answerText = findViewById(R.id.textView);
+        sendMessageButton = findViewById(R.id.button);
+        editTextMessage = findViewById(R.id.editText);
 
         Intent intent = getIntent();
-        textView.setText(intent.getStringExtra("text"));
+        answerText.setText(intent.getStringExtra("text"));
 
-        button.setOnClickListener(new View.OnClickListener() {
+        sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.putExtra("text", editText.getText().toString());
+                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                intent.putExtra("text", editTextMessage.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }

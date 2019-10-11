@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
-    private EditText editText;
-    private Button button;
+    final int REQUEST_CODE = 1;
+
+    private TextView answerText;
+    private EditText editTextMessage;
+    private Button sendMessageButton;
     private TextView textOrientation;
 
     @Override
@@ -21,25 +23,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = findViewById(R.id.textView);
-        button = findViewById(R.id.button);
-        editText = findViewById(R.id.editText);
+        answerText = findViewById(R.id.textView);
+        sendMessageButton = findViewById(R.id.button);
+        editTextMessage = findViewById(R.id.editText);
         textOrientation = findViewById(R.id.textView2);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-                intent.putExtra("text", editText.getText().toString());
-                startActivityForResult(intent, 1);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("text", editTextMessage.getText().toString());
+                startActivityForResult(intent, REQUEST_CODE);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String text = data.getStringExtra("text");
-        textView.setText(text);
+        if(resultCode == RESULT_OK) {
+            if(requestCode == REQUEST_CODE) {
+                String text = data.getStringExtra("text");
+                answerText.setText(text);
+            }
+        }
     }
 
     public void onConfigurationChanged(Configuration newConfig) {
