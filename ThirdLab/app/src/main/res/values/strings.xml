@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ThirdLab</string>
+    <string name="text">Text</string>
+    <string name="inputText">Text</string>
+    <string name="button">Submit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="information">Information</string>
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
+
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+</resources>
