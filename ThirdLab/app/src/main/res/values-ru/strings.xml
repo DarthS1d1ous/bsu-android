@@ -4,4 +4,13 @@
     <string name="text">Текст</string>
     <string name="inputText">Текст</string>
     <string name="button">Отправить</string>
+    <string name="editTextHint">Текст</string>
+
+    <string name="information">Информация</string>
+    <string name="settings">Настройки</string>
+    <string name="exit">Выход</string>
+
+    <string name="exitDialogMessage">Выйти?</string>
+    <string name="yes">ДА</string>
+    <string name="no">НЕТ</string>
 </resources>

@@ -1,11 +1,9 @@
 package com.borschevskydenis.secondlab;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +13,9 @@ import android.widget.TextView;
 import com.borschevskydenis.secondlab.DialogFragment.ExitDialogFragment;
 
 public class SecondActivity extends AppCompatActivity {
+
+    final static String EXIT = "exit";
+    final static String TEXT = "text";
 
     private TextView answerText;
     private EditText editTextMessage;
@@ -30,13 +31,13 @@ public class SecondActivity extends AppCompatActivity {
         editTextMessage = findViewById(R.id.editTextFragment);
 
         Intent intent = getIntent();
-        answerText.setText(intent.getStringExtra(MainActivity.TEXT));
+        answerText.setText(intent.getStringExtra(TEXT));
 
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-                intent.putExtra(MainActivity.TEXT, editTextMessage.getText().toString());
+                Intent intent = new Intent();
+                intent.putExtra(TEXT, editTextMessage.getText().toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -66,8 +67,8 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     public void finishAndRemoveTask() {
-        Intent intent = new Intent(SecondActivity.this, MainActivity.class);
-        intent.putExtra(MainActivity.EXIT, MainActivity.EXIT);
+        Intent intent = new Intent();
+        intent.putExtra(EXIT, EXIT);
         setResult(RESULT_OK, intent);
         super.finishAndRemoveTask();
     }

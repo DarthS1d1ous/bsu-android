@@ -14,7 +14,7 @@ public class ExitDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
-        builder.setMessage("Exit?")
+        builder.setMessage(R.string.exitDialogMessage)
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Objects.requireNonNull(getActivity()).finishAndRemoveTask();
