@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FifthLab</string>
+    <string name="nothingFound">Nothing found</string>
+    <string name="addUserError">Such user already exists!</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="search">Search</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="year_of_birth">Year of birth</string>
+    <string name="add_user">Add User</string>
+</resources>
